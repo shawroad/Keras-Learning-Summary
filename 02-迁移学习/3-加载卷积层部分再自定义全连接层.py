@@ -31,12 +31,17 @@ base_model.summary()
 print("\n"*3)
 
 
+# 冻结加载的那几层
+for layer in base_model.layers:
+    layer.trainable = False
+
+
 final_model = Sequential()
 final_model.add(base_model)
 final_model.add(Flatten())
-final_model.add(Dense(128, activation='relu', trainable=False))
-final_model.add(Dropout(0.2, trainable=False))
-final_model.add(Dense(10, activation='softmax', trainable=False))
+final_model.add(Dense(128, activation='relu'))
+final_model.add(Dropout(0.2))
+final_model.add(Dense(10, activation='softmax'))
 final_model.summary()
 
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
