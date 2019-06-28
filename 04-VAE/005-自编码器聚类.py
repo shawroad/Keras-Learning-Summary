@@ -149,17 +149,3 @@ y_train_pred = classfier.predict(x_train_encoded).argmax(axis=1)
 x_test_encoded = encoder.predict(x_test)
 y_test_pred = classfier.predict(x_test_encoded).argmax(axis=1)
 
-
-if os.
-
-def save(i):
-    with('./sample_{}'.format(i))
-
-
-
-# 看一下每个类对应的是什么数字
-for label in y_train_pred:
-    for i in range(10):
-        if label == i:
-            # 保存这张图片
-
